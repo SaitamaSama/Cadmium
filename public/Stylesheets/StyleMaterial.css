@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700|Material+Icons');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    height: 100%;
+    position: relative;
+    margin: 0;
+}
+.material-icons {
+    font-size: inherit;
+    line-height: inherit;
+}
+.mdl-tooltip {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/***************************************************/
+/*                   GET STARTED                   */
+/***************************************************/
+.page-get-started body, .page-get-started main {
+    overflow-x: hidden;
+}
+.page-get-started header {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.page-get-started header .header-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    opacity: .7;
+}
+
+.page-get-started .titles {
+    z-index: 50;
+    font-weight: 100;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.67);
+}
+.page-get-started .titles .title {
+    font-size: 80px;
+    display: block;
+    line-height: 80px;
+    margin: 0 0 30px 0;
+}
+.page-get-started .titles .sub {
+    font-size: 40px;
+    display: block;
+    line-height: 40px;
+}
+.page-get-started header .vertical-image-header {
+    z-index: 50;
+    width: 90%;
+    height: 200px;
+    margin: 50px 0 0 0;
+    position: relative;
+}
+.page-get-started header .vertical-image-header .mobile-number-input {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 150px);
+    z-index: 70;
+}
+.page-get-started header .vertical-image-header .mobile-number-input label, .page-get-started header .vertical-image-header .mobile-number-input input {
+    color: #FFFFFF;
+    font-family: inherit;
+    font-weight: 300;
+    border-bottom-color: #FFFFFF;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.67);
+}
+.page-get-started header .vertical-image-header img {
+    width: 100%;
+    height: 100%;
+    opacity: .9;
+}
+
+.page-get-started main {
+    height: 100%;
+}
+.page-get-started main .whole-page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.page-get-started .flexed-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.page-get-started .feature-slider {
+    width: 90%;
+    height: 400px;
+    position: relative;
+}
+.page-get-started .feature-slider .feature {
+    width: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 1s all;
+}
+.page-get-started .whole-page .title {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.67);
+    font-weight: 300;
+}
+.page-get-started .feature-slider .feature .text {
+    font-size: 50px;
+    font-weight: 100;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.67);
+}
+.page-get-started .feature-slider .feature.pictured .text {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.67);
+}
+.page-get-started .feature-slider .left-mover {
+    z-index: 10;
+    outline: none;
+    position: absolute;
+    left: -30px;
+    top: calc(50% - 30px);
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.67);
+    cursor: pointer;
+    font-size: 40px;
+    line-height: 60px;
+    transition: 300ms all;
+}
+.page-get-started .feature-slider .left-mover:hover {
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.67);
+}
+.page-get-started .feature-slider .right-mover {
+    z-index: 10;
+    position: absolute;
+    right: -30px;
+    top: calc(50% - 30px);
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.67);
+    cursor: pointer;
+    font-size: 40px;
+    line-height: 60px;
+    transition: 300ms all;
+    outline: none;
+}
+.page-get-started .feature-slider .right-mover:hover {
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.67);
+}
+.page-get-started .feature-slider .feature.active {
+    opacity: 1;
+    width: 100%;
+}
+
+.page-get-started .to-bottom {
+    z-index: 70;
+}
+.page-get-started .to-bottom .header-to-main {
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.67);
+    cursor: pointer;
+    font-size: 40px;
+    line-height: 60px;
+    transition: 300ms all;
+    z-index: 10;
+    outline: none;
+}
+.page-get-started .get-started-title {
+    z-index: 70;
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.page-get-started .brand-icon {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    top: -250px;
+    left: -250px;
+    z-index: 100;
+}
+.page-get-started .brand-icon .icon {
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+}
+.page-get-started .brand-icon .icon .material-icons {
+    font-size: 60px;
+}
