@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700');
 
 :root {
     --color-blue: #00aedb;
@@ -13,12 +13,13 @@ html {
 }
 
 body {
-    font-family: 'Roboto Slab', 'Sawasdee', 'Comfortaa', sans-serif;
+    font-family: 'Josefin Sans', 'Sawasdee', 'Comfortaa', sans-serif;
     font-size: 13px;
     margin: 0;
     height: 100%;
     position: relative;
     background: #363636;
+    line-height: 1.3;
 }
 
 header {
@@ -73,7 +74,7 @@ header .brand {
 .jumbotron .title {
     margin: 10px 15px;
     font-size: 60px;
-    font-weight: 100;
+    font-weight: 300;
     color: var(--color-text);
 }
 .jumbotron p {
@@ -123,12 +124,12 @@ main {
 .feature .image .title {
     z-index: 5;
     font-size: 23px;
-    font-weight: 400;
+    font-weight: 700;
 }
 .feature .description {
-    font-size: 13px;
+    font-size: 14px;
     margin: 7px 0 0 0;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .input-container {
@@ -138,7 +139,7 @@ main {
 }
 .input-container .title {
     font-size: 30px;
-    font-weight: 100;
+    font-weight: 300;
     color: #fdff3f;
     margin: 10px 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.45);
