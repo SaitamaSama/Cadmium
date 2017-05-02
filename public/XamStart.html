@@ -12,15 +12,37 @@
     </section>
 </header>
 <dialog id="otp-dialog">
-    <section>
-        <span class="title">Your OTP Goes Here:</span>
+    <section class="hidden-left page centered" id="resend-page" style="background: #E91E63;">
+        <section class="text-center">
+            <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+            </svg>
+            <br>
+            <span class="big-text-thin">Sending...</span>
+        </section>
     </section>
-    <section class="otp-input">
-        <input class="otp" id="otp" placeholder="">
+    <section class="hidden-right page active" id="enter-page" style="background: #FFFFFF; color: #121212;">
+        <section class="title" id="otp-title">
+            <span>Enter Your OTP:</span>
+        </section>
+        <section class="content" id="otp-content">
+            <section class="otp-input">
+                <input class="otp" id="otp" placeholder="" maxlength="6">
+            </section>
+            <section class="buttons">
+                <button class="submit" id="submit-otp">Go!</button>
+                <button class="resend" id="resend-otp">Resend?</button>
+            </section>
+        </section>
     </section>
-    <section class="buttons">
-        <button class="submit">Go!</button>
-        <button class="resend">Resend?</button>
+    <section class="hidden-right page centered" id="authentication-page" style="background: #363636; color: #FFFFFF;">
+        <section class="text-center">
+            <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+            </svg>
+            <br>
+            <span class="big-text-thin">Checking...</span>
+        </section>
     </section>
 </dialog>
 <section class="jumbotron">
@@ -36,7 +58,7 @@
         </section>
         <section class="input-container">
             <h1 class="title">Enter your mobile number to continue</h1>
-            <input class="mobile" placeholder="Mobile No!" maxlength="10" type="tel">
+            <input class="mobile" placeholder="Mobile No!" maxlength="10" type="tel" id="mobile">
         </section>
     </section>
 </section>
@@ -100,5 +122,9 @@
         </section>
     </section>
 </main>
+<script src="Scripts/Starter.js"></script>
+<script>
+    new OTPer(document.querySelector('#mobile'), document.querySelector('#otp-dialog'));
+</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Material+Icons');
 
 :root {
     --color-blue: #00aedb;
@@ -13,13 +13,14 @@ html {
 }
 
 body {
-    font-family: 'Josefin Sans', 'Sawasdee', 'Comfortaa', sans-serif;
+    font-family: 'Roboto', 'Sawasdee', 'Comfortaa', sans-serif;
     font-size: 13px;
     margin: 0;
     height: 100%;
     position: relative;
     background: #363636;
     line-height: 1.3;
+    overflow-x: hidden;
 }
 
 header {
@@ -51,7 +52,7 @@ header .brand {
 }
 
 .jumbotron {
-    background: url(/Images/pet_pattern.jpg);
+    background: url(/Images/pet_pattern_4.jpg);
     min-height: calc(100% - 80px);
     display: flex;
     align-items: center;
@@ -68,13 +69,13 @@ header .brand {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.37);
+    background: rgba(0, 0, 0, 0.67);
     z-index: 1;
 }
 .jumbotron .title {
     margin: 10px 15px;
     font-size: 60px;
-    font-weight: 300;
+    font-weight: 100;
     color: var(--color-text);
 }
 .jumbotron p {
@@ -124,10 +125,10 @@ main {
 .feature .image .title {
     z-index: 5;
     font-size: 23px;
-    font-weight: 700;
+    font-weight: 100;
 }
 .feature .description {
-    font-size: 14px;
+    font-size: 13px;
     margin: 7px 0 0 0;
     font-weight: 400;
 }
@@ -139,8 +140,8 @@ main {
 }
 .input-container .title {
     font-size: 30px;
-    font-weight: 300;
-    color: #fdff3f;
+    font-weight: 100;
+    color: #00bcd4;
     margin: 10px 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.45);
 }
@@ -151,11 +152,211 @@ input.mobile {
     font-family: inherit;
     font-size: inherit;
     width: 250px;
+    font-weight: 300;
     padding: 7px 15px;
     text-align: center;
     background: transparent;
     color: #FFFFFF;
 }
 ::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.notify {
+    position: fixed;
+    z-index: 100;
+    bottom: -100%;
+    width: 300px;
+    left: calc(80% - 150px);
+    height: 50px;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 200ms all;
+    font-weight: 100;
+    border-radius: 3px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+.notify.appear {
+    opacity: 1;
+    bottom: 30px;
+}
+
+#otp-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 70;
+}
+#otp-dialog {
+    top: -200%;
+    transition: 222ms all;
+    opacity: 0;
+    min-width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    height: 200px;
     color: #FFFFFF;
+    border: none;
+    background: #607D8B;
+    position: relative;
+}
+#otp-dialog .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100% - 50px);
+}
+#otp-dialog[open] {
+    opacity: 1;
+    top: calc(50% - 100px);
+}
+
+#otp-dialog .title {
+    font-weight: 100;
+    font-size: 40px;
+}
+#otp-dialog .otp-input {
+    width: 10%;
+    min-width: 10%;
+    flex-grow: 1;
+}
+#otp-dialog .otp-input input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #363636;
+    width: calc(100% - 20px);
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 300;
+    padding: 5px 10px;
+}
+#otp-dialog .content .buttons {
+    flex-grow: 1;
+}
+#otp-dialog .content .buttons button {
+    border: none;
+    font-family: inherit;
+    font-weight: 100;
+    font-size: 17px;
+    padding: 10px 5px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    cursor: pointer;
+    width: 120px;
+    text-align: center;
+    border-radius: 2.5px;
+    outline: none;
+    transition: 200ms all;
+}
+#otp-dialog .content .buttons button:hover, #otp-dialog .content .buttons button:active {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+#otp-dialog .content .buttons .submit {
+    background: #00aedb;
+    color: #121212;
+}
+#otp-dialog .content .buttons .resend {
+    background: #e75555;
+    color: #FFFFFF;
+}
+.hidden-left {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: calc(100% - 20px);
+    top: 0;
+    transition: 600ms width;
+    opacity: 0;
+}
+.hidden-right {
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: calc(100% - 20px);
+    top: 0;
+    transition: 600ms width, 600ms color;
+    opacity: 0;
+}
+.page.active {
+    width: calc(100% - 20px);
+    border-radius: inherit;
+    padding: 10px;
+    opacity: 1;
+    transition: 600ms width;
+}
+
+.big-text-thin {
+    font-weight: 100;
+    font-size: 60px;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page {
+    transition: 600ms all;
+}
+.text-center {
+    text-align: center;
+}
+
+.spinner {
+    -webkit-animation: rotator 1.4s linear infinite;
+    animation: rotator 1.4s linear infinite;
+}
+
+@keyframes rotator {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+}
+.path {
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+    animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@keyframes colors {
+    0% {
+        stroke: var(--color-blue);
+    }
+    25% {
+        stroke: var(--color-red);
+    }
+    50% {
+        stroke: #F7C223;
+    }
+    75% {
+        stroke: var(--color-green);
+    }
+    100% {
+        stroke: var(--color-blue);
+    }
+}
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 187;
+    }
+    50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+    }
+    100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+        transform: rotate(450deg);
+    }
 }
