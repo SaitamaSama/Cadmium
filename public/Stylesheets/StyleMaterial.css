@@ -295,7 +295,7 @@ body {
     color: #FFFFFF;
 }
 .curved-container button[role='button'].fourth.opened {
-    top: 510px;
+    top: 520px;
     right: 200px;
 }
 .curved-container button[role='button']:hover {

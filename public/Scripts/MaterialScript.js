@@ -68,11 +68,19 @@
     let fbToggle = false;
     document.querySelector('.brand-icon').addEventListener('click', () => {
         if(!fbToggle) {
+            document.querySelector('.brand-icon').style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                componentHandler.updateElements(Array.from(document.querySelectorAll('.mdl-toolip')));
+            }, 501);
             Array.from(document.querySelectorAll('.curved-container button')).forEach((button) => {
                 button.classList.add('opened');
             });
             fbToggle = true;
         } else if (fbToggle) {
+            document.querySelector('.brand-icon').style.transform = 'rotate(0deg)';
+            setTimeout(() => {
+                componentHandler.updateElements(Array.from(document.querySelectorAll('.mdl-toolip')));
+            }, 501);
             Array.from(document.querySelectorAll('.curved-container button')).forEach((button) => {
                 button.classList.remove('opened');
             });
