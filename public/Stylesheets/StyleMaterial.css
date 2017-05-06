@@ -32,6 +32,7 @@ body {
     justify-content: center;
     flex-direction: column;
     position: relative;
+    z-index: 10000;
 }
 .page-get-started header .header-bg-img {
     position: absolute;
@@ -40,13 +41,22 @@ body {
     z-index: 20;
     width: 100%;
     height: 100%;
-    opacity: .7;
+    opacity: .5;
+}
+
+.normal-text {
+    font-size: 14px;
+    font-weight: 400;
+}
+.f-light {
+    font-weight: 300;
 }
 
 .page-get-started .titles {
     z-index: 50;
     font-weight: 100;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.67);
+    color: #FFFFFF;
 }
 .page-get-started .titles .title {
     font-size: 80px;
@@ -74,11 +84,9 @@ body {
 }
 .page-get-started header .vertical-image-header .mobile-number-input label, .page-get-started header .vertical-image-header .mobile-number-input input {
     color: #FFFFFF;
+    font-weight: 400;
     font-family: inherit;
-    font-weight: 300;
-    border-bottom-color: #FFFFFF;
     text-align: center;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.67);
 }
 .page-get-started header .vertical-image-header img {
     width: 100%;
@@ -214,13 +222,109 @@ body {
     border-radius: 50%;
     top: -250px;
     left: -250px;
-    z-index: 100;
+    z-index: 7000;
+    transition: .5s all;
+    cursor: pointer;
 }
+.page-get-started .brand-icon:hover {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.56);
+}
+/*.page-get-started .brand-icon:hover {*/
+    /*animation: 1s icon-boop;*/
+/*}*/
 .page-get-started .brand-icon .icon {
     position: absolute;
-    right: 100px;
+    right: 90px;
     bottom: 100px;
+    cursor: inherit;
+    transition: .5s all;
 }
+.page-get-started .brand-icon .curved-container {
+    position: absolute;
+    right: -50px;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    text-align: center;
+    z-index: 5000;
+}
+.curved-container button[role='button'] {
+    width: 0;
+    height: 0;
+    top: 250px;
+    right: 1000px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: #FFFFFF;
+    color: #121212;
+    font-size: 20px;
+    transition: .6s all;
+    position: absolute;
+    cursor: pointer;
+}
+.curved-container button[role='button'].opened {
+    width: 65px;
+    height: 65px;
+    opacity: 1;
+}
+.curved-container button[role='button'].first:hover {
+    background: #F7C223;
+}
+.curved-container button[role='button'].first.opened {
+    top: 290px;
+    right: -30px;
+}
+.curved-container button[role='button'].second:hover {
+    background: #00bcd4;
+}
+.curved-container button[role='button'].second.opened {
+    top: 400px;
+    right: 8px;
+}
+.curved-container button[role='button'].third:hover {
+    background: #e75555;
+    color: #FFFFFF;
+}
+.curved-container button[role='button'].third.opened {
+    top: 480px;
+    right: 92px;
+}
+.curved-container button[role='button'].fourth:hover {
+    background: #E91E63;
+    color: #FFFFFF;
+}
+.curved-container button[role='button'].fourth.opened {
+    top: 510px;
+    right: 200px;
+}
+.curved-container button[role='button']:hover {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.56);
+}
+/*.page-get-started .brand-icon:hover .icon {*/
+    /*animation: 1s icon-icon-boop;*/
+/*}*/
 .page-get-started .brand-icon .icon .material-icons {
     font-size: 60px;
+}
+
+@keyframes icon-boop {
+    50% {
+        top: -220px;
+        left: -220px;
+    }
+    100% {
+        top: -250px;
+        left: -250px;
+    }
+}
+@keyframes icon-icon-boop {
+    50% {
+        right: 150px;
+        bottom: 120px;
+    }
+    100% {
+        right: 130px;
+        bottom: 100px;
+    }
 }
