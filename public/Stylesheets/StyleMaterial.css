@@ -226,6 +226,9 @@ body {
     transition: .5s all;
     cursor: pointer;
 }
+.page-get-started .brand-icon.opened {
+    animation: .5s brand-icon-rotate;
+}
 .page-get-started .brand-icon:hover {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.56);
 }
@@ -327,4 +330,199 @@ body {
         right: 130px;
         bottom: 100px;
     }
+}
+@keyframes brand-icon-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    51% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+#otp-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 70;
+}
+#otp-dialog {
+    top: -200%;
+    transition: 222ms all;
+    opacity: 0;
+    min-width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    height: 200px;
+    color: #FFFFFF;
+    border: none;
+    background: #607D8B;
+    position: relative;
+}
+#otp-dialog .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100% - 50px);
+    margin-top: 50px;
+}
+#otp-dialog[open] {
+    opacity: 1;
+    top: calc(50% - 100px);
+}
+
+#otp-dialog .title {
+    font-weight: 100;
+    font-size: 40px;
+}
+#otp-dialog .otp-input {
+    width: 10%;
+    min-width: 10%;
+    flex-grow: 1;
+}
+#otp-dialog .otp-input input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #363636;
+    width: calc(100% - 20px);
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 300;
+    padding: 5px 10px;
+}
+#otp-dialog .content .buttons {
+    flex-grow: 1;
+}
+#otp-dialog .content .buttons button {
+    border: none;
+    font-family: inherit;
+    font-weight: 100;
+    font-size: 17px;
+    padding: 10px 5px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    cursor: pointer;
+    width: 120px;
+    text-align: center;
+    border-radius: 2.5px;
+    outline: none;
+    transition: 200ms all;
+}
+#otp-dialog .content .buttons button:hover, #otp-dialog .content .buttons button:active {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+#otp-dialog .content .buttons .submit {
+    background: #00aedb;
+    color: #121212;
+}
+#otp-dialog .content .buttons .resend {
+    background: #e75555;
+    color: #FFFFFF;
+}
+.hidden-left {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: calc(100% - 20px);
+    top: 0;
+    transition: 600ms width;
+    opacity: 0;
+}
+.hidden-right {
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: calc(100% - 20px);
+    top: 0;
+    transition: 600ms width, 600ms color;
+    opacity: 0;
+}
+.page.active {
+    width: calc(100% - 20px);
+    border-radius: inherit;
+    padding: 10px;
+    opacity: 1;
+    transition: 600ms width;
+}
+
+.big-text-thin {
+    font-weight: 100;
+    font-size: 60px;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page {
+    transition: 600ms all;
+}
+.text-center {
+    text-align: center;
+}
+
+.spinner {
+    -webkit-animation: rotator 1.4s linear infinite;
+    animation: rotator 1.4s linear infinite;
+}
+
+@keyframes rotator {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+}
+.path {
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+    animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@keyframes colors {
+    0% {
+        stroke: #4285F4;
+    }
+    25% {
+        stroke: #DE3E35;
+    }
+    50% {
+        stroke: #F7C223;
+    }
+    75% {
+        stroke: #1B9A59;
+    }
+    100% {
+        stroke: #4285F4;
+    }
+}
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 187;
+    }
+    50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+    }
+    100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+        transform: rotate(450deg);
+    }
+}
+.mdl-snackbar {
+    z-index: 15000;
+    font-family: Roboto, sans-serif;
 }

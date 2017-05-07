@@ -2,17 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-yellow.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-yellow.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="Stylesheets/StyleMaterial.css" rel="stylesheet">
     <title>Get Started</title>
 </head>
 <body class="page-get-started mdl-color-text--black-300">
+
+<dialog id="otp-dialog">
+    <section class="hidden-left page centered" id="resend-page" style="background: #E91E63;">
+        <section class="text-center">
+            <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+            </svg>
+            <br>
+            <br>
+            <span class="big-text-thin">Sending...</span>
+        </section>
+    </section>
+    <section class="hidden-right page active" id="enter-page" style="background: #FFFFFF; color: #121212;">
+        <section class="title" id="otp-title" style="padding-top: 10px">
+            <span>Enter Your OTP:</span>
+        </section>
+        <section class="content" id="otp-content">
+            <section class="otp-input">
+                <input class="otp" id="otp" placeholder="" maxlength="6">
+            </section>
+            <section class="buttons">
+                <button class="submit" id="submit-otp">Go!</button>
+                <button class="resend" id="resend-otp">Resend?</button>
+            </section>
+        </section>
+    </section>
+    <section class="hidden-right page centered" id="authentication-page" style="background: #363636; color: #FFFFFF;">
+        <section class="text-center">
+            <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+            </svg>
+            <br>
+            <br>
+            <span class="big-text-thin">Checking...</span>
+        </section>
+    </section>
+</dialog>
 <header class="mdl-color--black">
-    <div class="brand-icon mdl-color--green mdl-color-text--white" id="parent-circle">
+    <div class="brand-icon mdl-color--blue mdl-color-text--white" id="parent-circle">
         <div class="icon">
             <i class="material-icons">pets</i>
             <br>
-            <span class="normal-text" style="text-transform: uppercase">Click here to ...</span>
+            <span class="normal-text" style="text-transform: uppercase; font-weight: 100;">Click here to ...</span>
         </div>
         <section class="curved-container">
             <button role="button" class="first" id="f1">
@@ -50,55 +88,20 @@
             Some subheading should be here
         </span>
     </section>
-    <!--<section class="get-started-title mdl-color-text&#45;&#45;yellow">-->
-        <!--Let's get started, just...-->
-    <!--</section>-->
     <section class="vertical-image-header">
         <div class="mdl-textfield mdl-js-textfield mobile-number-input">
-            <input class="mdl-textfield__input" id="mobile-no" pattern="[0-9]{10}" maxlength="10">
-            <label class="mdl-textfield__label" for="mobile-no">Enter Your Mobile No Here...</label>
+            <input class="mdl-textfield__input" id="mobile" pattern="[0-9]{10}" maxlength="10">
+            <label class="mdl-textfield__label" for="mobile">Enter Your Mobile No Here...</label>
         </div>
     </section>
-    <!--<section class="flexed-center to-bottom">-->
-        <!--<button class="header-to-main mdl-color-text&#45;&#45;blue-grey" id="started-header-to-main">-->
-            <!--<i class="material-icons">keyboard_arrow_down</i>-->
-        <!--</button>-->
-        <!--<div class="mdl-tooltip mdl-tooltip&#45;&#45;large mdl-tooltip&#45;&#45;top" data-mdl-for="started-header-to-main">-->
-            <!--Learn more about us!-->
-        <!--</div>-->
-    <!--</section>-->
-</header>
-<!--<main>-->
-    <!--<section class="whole-page mdl-color&#45;&#45;blue-grey flexed-center mdl-color-text&#45;&#45;white">-->
-        <!--<span class="title">Something about us...</span>-->
-        <!--<section class="feature-slider" id="started-feature-slider">-->
-            <!--<button class="left-mover" id="started-left-feature-mover">-->
-                <!--<i class="material-icons">keyboard_arrow_left</i>-->
-            <!--</button>-->
-            <!--<section class="feature active">-->
-                <!--<span class="text">Lorem Ipsum! NO! Latin is bad!</span>-->
-            <!--</section>-->
-            <!--<section class="feature">-->
-                <!--<span class="text">Hey! You still there?</span>-->
-            <!--</section>-->
-            <!--<section class="feature pictured">-->
-                <!--<span class="mdl-color-text&#45;&#45;white text">Dogs are nicer than cats.</span>-->
-                <!--<img src="Images/pet_1200x400_1.jpg">-->
-            <!--</section>-->
-            <!--<section class="feature pictured">-->
-                <!--<span class="mdl-color-text&#45;&#45;white text">Cats are bad. Dogs FTW!</span>-->
-                <!--<img src="Images/pet_1200x400_2.jpg">-->
-            <!--</section>-->
-            <!--<button class="right-mover" id="started-right-feature-mover">-->
-                <!--<i class="material-icons">keyboard_arrow_right</i>-->
-            <!--</button>-->
-            <!--<div class="mdl-tooltip" data-mdl-for="started-right-feature-mover">-->
-                <!--Next-->
-            <!--</div>-->
-        <!--</section>-->
-    <!--</section>-->
-<!--</main>-->
+<div id="toast-container" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+</div>
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script src="Scripts/MaterialScript.js"></script>
+<script>
+    new OTPer(document.querySelector('#mobile'), document.querySelector('#otp-dialog'), document.querySelector('#toast-container'));
+</script>
 </body>
 </html>
