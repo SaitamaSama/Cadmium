@@ -114,4 +114,40 @@
     }
 
     window.OTPer = OTPer;
+
+    Array.from(document.querySelectorAll('button[role="button"]')).forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            button.style.width = window.innerWidth - 10 + 'px';
+            button.style.height = window.innerHeight - 10 + 'px';
+            button.classList.add('active');
+            let previousContent = '';
+            setTimeout(() => {
+                previousContent = button.innerHTML;
+                let newContent = document.querySelector(button.getAttribute('data-page')).innerHTML;
+                let container = document.createElement('section');
+                container.classList.add('container');
+                container.innerHTML = newContent + `
+                <section class="close-buttons">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close-button-button">
+                        Close
+                    </button>
+                </section>`;
+                // Add close bindings
+                button.innerHTML = '';
+                button.appendChild(container);
+                document.querySelector('.close-button-button').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    button.innerHTML = previousContent;
+                    button.style.width = '65px';
+                    button.style.height = '65px';
+                    button.classList.remove('active');
+                });
+            }, 1000);
+        });
+    });
 })();
