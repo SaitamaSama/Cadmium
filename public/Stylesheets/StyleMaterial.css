@@ -314,6 +314,7 @@ body {
     z-index: 20000 !important;
     background: #FFFFFF !important;
     color: #121212 !important;
+    pointer-events: none;
     /*display: flex;
     align-items: flex-start;
     justify-content: flex-start;*/
@@ -329,6 +330,10 @@ body {
 .curved-container button[role='button'].active:hover {
     background: #FFFFFF;
     color: #121212;
+}
+.close-button-button {
+    pointer-events: all;
+    z-index: 50000;
 }
 /*.page-get-started .brand-icon:hover .icon {*/
     /*animation: 1s icon-icon-boop;*/

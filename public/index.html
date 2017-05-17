@@ -11,16 +11,16 @@
         Cadmium
     </section>
     <section class="pet-item">
-        <span class="title">Louise</span>
+        <span class="title">Matakasu</span>
     </section>
     <section class="pet-item">
-        <span class="title">Cupor</span>
+        <span class="title">Tohsaka</span>
     </section>
     <section class="pet-item">
-        <span class="title">Fredly</span>
+        <span class="title">Unuatsu</span>
     </section>
     <section class="pet-item">
-        <span class="title">Jackspedicey</span>
+        <span class="title">Pauya</span>
     </section>
     <button class="fab" role="button">
         <i class="material-icons">add</i>
@@ -28,8 +28,26 @@
 </aside>
 <main>
     <section class="centered page">
-        <span class="big-fat-text red-text">Louise</span>
+        <section class="container">
+            <span class="big-fat-text">Matakasu</span>
+            <br>
+            <button class="button primary"><i class="material-icons">shopping_basket</i> Shop here</button>
+            <button class="button accent" data-page-open="#change-details-page" data-page-data='{"PetId": 0}'><i class="material-icons">mode_edit</i> Edit details</button>
+        </section>
     </section>
+    <div class="page-bar">
+        <span class="menu"><i class="material-icons">menu</i></span>
+        <span class="name">Edit Details</span>
+    </div>
+    <section class="page-actions" data-page-action-populate></section>
+    <div id="change-details-page" data-data-bindings='{"type": "class", "name": "PetDetail"}' class="page-generic">
+    </div>
 </main>
+<script src="Scripts/Classes/PetDetail.js"></script>
+<script src="Scripts/Main.js"></script>
+<script>
+    let pageManager = new PageManager();
+    pageManager.init();
+</script>
 </body>
 </html>

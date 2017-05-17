@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,700|Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One|Material+Icons');
+
+:root {
+    --primary-color: #2196f3;
+    --primary-text-color: #FFFFFF;
+    --accent-color: #FFEB3B;
+    --accent-text-color: #121212;
+}
 
 .material-icons {
     font-size: inherit;
@@ -6,14 +13,14 @@
 }
 
 ::selection {
-    background: rgba(0, 0, 255, 0.1);
+    background: rgba(0, 0, 255, 0.4);
 }
 
 html {
     height: 100%;
 }
 body {
-    font-family: "Dosis", sans-serif;
+    font-family: "Poiret One", sans-serif;
     height: 100%;
     margin: 0;
     line-height: 1.5;
@@ -27,10 +34,11 @@ body {
 .sidebar {
     width: 300px;
     height: 100%;
-    background: #00bcd4;
+    background: #2196f3;
     box-shadow: 3px 0 3px rgba(0, 0, 0, 0.6);
     overflow: auto;
     position: relative;
+    z-index: 100;
 }
 .sidebar .site-name {
     height: 63px;
@@ -44,7 +52,7 @@ body {
     /*box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);*/
 }
 .sidebar .pet-item {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.04);
     height: 60px;
     display: flex;
     align-items: center;
@@ -63,7 +71,7 @@ body {
 .sidebar .pet-item .title {
     font-size: 20px;
     font-weight: 700;
-    color: #ffeb3b;
+    color: #FFFFFF;
 }
 .sidebar .fab {
     width: 60px;
@@ -73,8 +81,8 @@ body {
     right: 10px;
     border-radius: 50px;
     border: none;
-    background: #e91e63;
-    color: #FFFFFF;
+    background: #FFEB3B;
+    color: #121212;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,16 +98,25 @@ body {
 main {
     flex-grow: 1;
     height: 100%;
-    background: #FFFFFF;
+    background: url(/Images/texture.jpg);
+    background-size: cover;
     color: #121212;
+    position: relative;
 }
 
-main .centered {
+main .page {
     height: 100%;
     width: 100%;
+    background: rgba(0, 0, 0, 0.56);
+    color: #FFFFFF;
+}
+main .centered {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+main .centered .container {
+    text-align: center;
 }
 
 .big-fat-text {
@@ -108,4 +125,105 @@ main .centered {
 }
 .red-text {
     color: #e75555;
+}
+
+.button {
+    border: none;
+    border-radius: 2.8px;
+    background: #DDDDDD;
+    color: #121212;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 7px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    outline: none;
+    transition: 400ms all;
+}
+.button:active {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.button:focus {
+    box-shadow: 0 3.5px 5px rgba(0, 0, 0, 0.5);
+}
+.button.primary {
+    background: var(--primary-color);
+    color: var(--primary-text-color);
+}
+.button.accent {
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+}
+
+main .page-generic {
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    position: fixed;
+    transition: .8s all;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+main .page-generic.active {
+    width: calc(100% - 40px);
+    height: calc(100% - 100px);
+    padding: 20px;
+    position: absolute;
+    left: 0 !important;
+    top: 60px !important;
+    overflow: auto;
+    bottom: 0 !important;
+    right: 0 !important;
+    border-radius: 0;
+}
+main .page-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: .8s all;
+    background: #424242;
+    border-radius: 100px;
+    opacity: 0;
+}
+main .page-bar.active {
+    width: calc(100% - 20px);
+    border-radius: 0;
+    opacity: 1;
+    padding-left: 20px;
+}
+main .page-bar.active .menu {
+    font-size: 22px;
+    color: #FFFFFF;
+    margin-right: 20px;
+    cursor: pointer;
+}
+main .page-bar.active .name {
+    font-size: 21px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+main .page-actions {
+    position: absolute;
+    width: 200px;
+    left: -200px;
+    top: 60px;
+    background: #FFFFFF;
+    z-index: 50;
+    height: calc(100% - 60px);
+    transition: .4s all;
+    box-shadow: 3px 0 3px rgba(0, 0, 0, 0.6);
+}
+main .page-actions.active {
+    left: 0;
+}
+
+.page-actions .item {
+    padding: 15px 0 15px 22px;
+    font-size: 12px;
+    font-weight: 700;
 }

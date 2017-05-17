@@ -47,31 +47,27 @@
         handleEnter() {
             if(this.inputElement.value.trim().length == 10) {
                 let mobileNo = this.inputElement.value.trim();
+                this.mobile = mobileNo;
                 // API Request
-                // Open OTP dialog
-                this.dialogElement.showModal();
+                let xhr = new XMLHttpRequest();
+
+                xhr.open("GET", "/api/otp/send.json?mobileNo=" + mobileNo + "", true);
+
+                xhr.onreadystatechange = () => {
+                    if(xhr.readyState == XMLHttpRequest.DONE) {
+                        if(JSON.parse(xhr.responseText).status == "OK") {
+                            // Open OTP dialog
+                            this.dialogElement.showModal();
+                        }
+                    }
+                };
+
+                xhr.send();
             } else {
                 this.snackbarElement.MaterialSnackbar.showSnackbar({
                     message: "Please provide a valid mobile number"
                 });
             }
-        }
-
-        createNotification(background, color, message) {
-            let notification = document.createElement('div');
-            notification.classList.add('notify');
-            notification.style.background = background;
-            notification.style.color = color;
-            notification.innerHTML = message;
-
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.classList.add('appear');
-                setTimeout(() => {
-                    notification.classList.remove('appear');
-                }, 5000);
-            }, 201);
         }
 
         resend() {
@@ -110,6 +106,29 @@
 
             document.querySelector('#enter-page').classList.remove('active');
             document.querySelector('#authentication-page').classList.add('active');
+            // Authenticate
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('GET', '/api/otp/authenticate.json?otp=' + otp + '&mobile=' + this.mobile);
+
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState == XMLHttpRequest.DONE) {
+                    if(JSON.parse(xhr.responseText)["authentication"] == "OK") {
+                        document.querySelector('#authentication-page').innerHTML = '' +
+                            '<section class="text-center">' +
+                            '<i class="material-icons big-text-thin" style="color: #ffeb3b;">done</i>' +
+                            '<br>' +
+                            '<span class="big-text-thin">Authenticated!</span>' +
+                            '<br>' +
+                            '<br>' +
+                            '<span class="big-text-thin" style="font-size: 23px;">Just a sec...</span>' +
+                            '</section>';
+                        document.querySelector('#authentication-page').style.background = '#00bcd4';
+                    }
+                }
+            };
+
+            xhr.send();
         }
     }
 
